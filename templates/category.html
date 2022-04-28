@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% load static %} 
+
+{% block content %}
+ 
+<!--
+        - #CATEGORY SECTION
+      -->
+      <section class="category" id="category">
+
+        <h2 class="section-heading">Category</h2>
+        
+        <div class="category-grid">
+        {% for category in links %}
+          <div class="category-card">
+            <a class="link" href="http://127.0.0.1:8000">
+                <img src="{{category.cat_image.url}}" alt="" class="card-img">
+            <a class="name" href="{{category.get_url}}">
+                <span>{{category.category_name}}</span>
+            </a>
+            <div class="total">{{category.total_movie}}</div>
+            <div class="card-overlay">
+                <div class="play" >
+                    <a href="moviedetails">
+                        <ion-icon name="play-circle-outline"></ion-icon>
+                    </a>
+                  </div>
+            </a>
+            </div>  
+          </div>
+        {% endfor %}
+
+        </div>
+
+      </section>
+
+
+{% endblock %}

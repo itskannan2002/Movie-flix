@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>MovieFlix</title>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='' rel='stylesheet'>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <style>
+                                    
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #343a40
+}
+.background-wrapper .background {
+    min-height: 100%;
+    min-width: 100%;
+}
+.background-wrapper {
+    position: absolute;
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    z-index: -1;
+}
+
+.card {
+    background: #000;
+    color: #fff;
+    width: 650px !important
+}
+
+.mrow {
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+img {
+    margin-right: 10px
+}
+
+.main span:hover {
+    text-decoration: underline;
+    cursor: pointer
+}
+
+.mrow img:hover {
+    border-bottom: 1px solid #fff;
+    cursor: pointer
+}
+
+.btn-primary {
+    border: none;
+    border-radius: 30px
+}
+
+h5 {
+    padding-top: 8px
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 4rem
+}
+
+.form-control-placeholder {
+    position: absolute;
+    top: 10px;
+    padding: 7px 0 0 10px;
+    transition: all 200ms;
+    opacity: 0.5;
+    color: #dae0e5 !important;
+    font-size: 100%
+}
+
+.form-control:focus+.form-control-placeholder,
+.form-control:valid+.form-control-placeholder {
+    font-size: 75%;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+    top: 10px
+}
+
+.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff !important;
+    border-radius: 0;
+    outline: 0
+}
+
+.form-control:focus,
+.form-control:after {
+    outline-width: 0;
+    border-bottom: 1px solid #fff !important;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    color: #dae0e5;
+    letter-spacing: 1px
+}
+</style>
+
+
+
+</head>
+
+<body oncontextmenu='return false' class='snippet-body'>
+    {% load static %}
+    
+
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="card my-20 p-4">
+            <div class="text-center">
+                <div class="col-12"><span><b><h4>Set up your credit or debit card</h4></b></span></div>
+            </div>
+            <div class="row justify-content-center mrow">
+                <div class="col-12"> <img src="https://pngimg.com/uploads/visa/visa_PNG34.png" width="200px" height="40px" />  </div>
+            </div>
+            <form action="" method="post">
+                {% csrf_token %}
+  
+			
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div> 
+                                {{ form.first_name }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group"> 
+                            <div>
+                                {{ form.last_name }}
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-12">
+                        <div class="form-group"> 
+                            {{ form.email }}
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    
+                    <div class="col-sm-7 col-12">
+                        <div class="form-group"> 
+                            {{ form.credit_card }}
+                        </div>
+                    </div>
+                    <div class="row">
+                    
+                        <div class="col-12">
+                            <div class="form-group"> 
+                                {{ form.expire_date }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="form-group"> 
+                            {{ form.cvv }}
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                    <label class="form-check-label" for="flexCheckDefault">
+                      I Agree
+                    </label>
+                </div>
+                <div>
+
+                </div>
+                <div>
+                    <P> 
+                        By checking the checkbox below, you agree to our Terms of Use, Privacy Statement, 
+                        and that you are over 18. Netflix will automatically continue your membership and 
+                        charge the membership fee (currently ₹ {{single_payments.plan_price}}/month) to your 
+                        payment method until you cancel. You may cancel at any time to avoid future charges.
+                    </p>
+                </div>
+                <div class="row lrow mt-4 mb-3">
+                    <div class="col-sm-8 col-12">
+                        <h3>Grand Total:</h3>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <h5> ₹ {{single_payments.plan_price}} </h5>
+                    </div>
+                </div>
+                {% load static %}
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary btn-block">
+                            <p> Start Membership</p>
+                            <a href="http://127.0.0.1:8000/">
+                                <p>Start Membership</p>
+                            </a>
+                            </button>
+                            <div class="pricing-box-action">
+                                <a href="http://127.0.0.1:8000/" class="btn btn-hover">
+                                    <span>Start Membership</span>
+                                </a>
+                            </div> 
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+<script type='text/javascript' src=''></script>
+<script type='text/javascript' src=''></script>
+<script type='text/Javascript'></script>
+</body>
+</html>
+
+                            

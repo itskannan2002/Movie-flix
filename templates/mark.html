@@ -1,0 +1,113 @@
+{% extends 'base.html'%}
+{% load static %} 
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-4 col-md-6 col-sm-12">
+			<div class="content"> 
+				<div class="pricing-box-header">
+					<div class="pricing-name">
+						WATCHLIST
+					</div>
+				</div>
+				<p>
+					{{grand_total}} Movies in your watchlist 
+				</p>
+				
+			</div>
+		</div>
+	</div>
+</div>
+          <!-- movies grid
+        -->
+
+{% if not mark_items %}
+
+	<h2> your watchlist is empty </h2>
+	<br>
+	<button class="load-more">
+		<a href =" {% url 'store' %}">
+		checkout the movie pages </a>
+	</button>
+
+  </section>
+
+
+
+{% else %}
+
+		<div class="<div class="container">
+			<br>
+			<section class="movies">
+	
+                <div class="movies-grid">
+					{% for mark_item in mark_items %}
+
+            
+                    <div class="movie-card ">
+                        <a href="http://127.0.0.1:8000">
+                        
+                      <div class="card-head"  >
+                        <a href="http://127.0.0.1:8000">
+                            <img src="{{mark_item.product.image.url}}" alt="" class="card-img" >
+                        </a>
+            
+                        <div class="card-overlay">
+            
+                          <div class="bookmark">
+                            <a href="{% url 'remove_mark' mark_item.product.id mark_item.id %}">
+                                <ion-icon name="bookmark"></ion-icon>
+                            </a>
+                          </div>
+            
+                          <div class="rating">
+                            <ion-icon name="star-outline"></ion-icon>
+                            <span>7.5</span>
+                          </div>
+            
+                          <div class="play" >
+                            <a href="{{ mark_item.product.get_url}}">
+                                <ion-icon name="play-circle-outline"></ion-icon>
+                            </a>
+                          </div>
+
+                        </div>           
+                      </div>
+            
+                      <div class="card-body">
+                        <a class="card-title" href='{{product.get_url}}'>
+                            <span>{{ mark_item.product.product_name}} </span>
+                        </a>
+                      </div>
+					  
+                    </div>
+					{% endfor %}
+					
+                </div>
+            </section >
+		</div>
+{% endif %}
+    
+
+
+  </div>
+  {% endblock%}
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="{% static 'main/main.js'%}"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

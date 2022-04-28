@@ -1,0 +1,489 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="no-js">
+<head>
+	<!-- Basic need -->
+	<title>Open Pediatrics</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="{% static 'css2/plugins.css' %}">
+	<link rel="stylesheet" href="{% static 'css2/style.css' %}">
+
+</head>
+<body>
+
+<!-- BEGIN | Header -->
+
+
+<div class="hero mv-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single movie-single movie_single">
+	<div class="container">
+		<div class="row ipad-width2">
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="movie-img sticky-sb">
+					<img src="{{single_product.image.url}}" alt="">
+					<div class="movie-btn">	
+
+						<div class="btn-transform transform-vertical red">
+							<div><a href="#" class="item item-1 bluebtn"> <i class="ion-play"></i> Watch Trailer</a></div>
+							<div><a href="https://www.youtube.com/embed/o-0hcF97wy0" class="item item-2 bluebtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
+						</div>
+						{% if in_mark %}
+						<div class="btn-transform transform-vertical">
+							<div><b href="#" class="btn btn-success"> <i class="ion-card"></i>it is added to your watchlist </b></div>
+						</div>
+						<div> <span> </span> 
+						</div>
+						<div class="movie-btn">
+							<div class="btn-transform transform-vertical red">
+								<div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i>view watchlist </a></div>
+								<div><a href="{% url 'mark' %}" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
+							</div>
+						</div>
+							
+
+						{% else %}
+						<div class="btn-transform transform-vertical">
+							<div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i>Watchlist</a></div>
+							<div><a href="{% url 'add_mark' single_product.id %}" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
+						</div>
+						{% endif %}
+						<div class="movie-btn">	
+
+							<div class="btn-transform transform-vertical red">
+								<div><a href="#" class="item item-1 orangebtn"> <i class="ion-play"></i>downlaod 720P</a></div>
+								<div><a href="https://www.youtube.com/embed/o-0hcF97wy0" class="item item-2 orangebtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
+							</div>
+							<div class="btn-transform transform-vertical red">
+								<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i>downlaod 1080P</a></div>
+								<div><a href="https://www.youtube.com/embed/o-0hcF97wy0" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
+							</div>
+						</div>
+						
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="movie-single-ct main-content">
+					<h1 class="bd-hd">{{single_product.product_name}} <h5> {{single_product.movie_release_year }}</h5>  </h1>
+          
+					<div class="social-btn">
+						
+						<div class="hover-bnt">
+							<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
+							<div class="hvr-item">
+								<a href="#" class="hvr-grow"><i class="ion-social-facebook"></i></a>
+								<a href="#" class="hvr-grow"><i class="ion-social-twitter"></i></a>
+								<a href="#" class="hvr-grow"><i class="ion-social-googleplus"></i></a>
+								<a href="#" class="hvr-grow"><i class="ion-social-youtube"></i></a>
+							</div>
+						</div>		
+					</div>
+					<div class="movie-rate">
+						<div class="rate">
+							<i class="ion-android-star"></i>
+							<p><span>8.1</span> /10<br>
+								<span class="rv">56 Reviews</span>
+							</p>
+						</div>
+					</div>
+					<div class="movie-tabs">
+						<div class="tabs">
+							<ul class="tab-links tabs-mv">
+								<li class="active"><a href="#overview">Overview</a></li>
+								<li ><a href="#movies">watch Movies</li>
+								<li ><a href="#reviews"> Reviews</a></li>
+								<li ><a href="#cast"> Cast & Crew </a></li>						                  
+							</ul>
+						    <div class="tab-content">
+						        <div id="overview" class="tab active">
+						            <div class="row">
+						            	<div class="col-md-8 col-sm-12 col-xs-12">
+						            		<p>{{single_product.description}}</p>
+						            		
+											
+											<div class="title-hd-sm">
+												<h4>cast</h4>
+											</div>
+											<!-- movie cast -->
+
+												<div class="movies-grid">
+													<div class="movie-card ">
+													<div class="card-head"  >
+															<img src="{{single_product.product_actor1_image.url}}" alt="" class="card-img" >
+														</a>
+													</div>
+													<div class="cast-it">
+														<div class="cast-left">
+															<p href="#">{{single_product.product_actor1}}</p>
+														</div>
+													</div>	
+													</div>
+												
+													<div class="movie-card ">
+													<div class="card-head"  >
+															<img src="{{single_product.product_actor2_image.url}}" alt="" class="card-img" >
+														</a>
+													</div>
+													<div class="cast-it">
+														<div class="cast-left">
+															<p><a href="#">{{single_product.product_actor2}}</a></p>
+														</div>
+													</div>	
+													</div>
+												
+													<div class="movie-card ">
+													<div class="card-head"  >
+															<img src="{{single_product.product_actor3_image.url}}" alt="" class="card-img" >
+														</a>
+													</div>
+													<div class="cast-it">
+														<div class="cast-left">
+															<p><a href="#">{{single_product.product_actor3}}</a></p>
+														</div>
+													</div>	
+													</div>
+												
+													<div class="movie-card ">
+													<div class="card-head"  >
+															<img src="{{single_product.product_actor4_image.url}}" alt="" class="card-img" >
+														</a>
+													</div>
+													<div class="cast-it">
+														<div class="cast-left">
+															<p><a href="#">{{single_product.product_actor4}}</a></p>
+														</div>
+													</div>	
+													</div>
+													<div class="movie-card ">
+														<div class="card-head"  >
+																<img src="{{single_product.product_actor5_image.url}}" alt="" class="card-img" >
+															</a>
+														</div>
+														<div class="cast-it">
+															<div class="cast-left">
+																<p><a href="#">{{single_product.product_actor5}}</a></p>
+															</div>
+														</div>	
+													</div>
+													<div class="movie-card ">
+														<div class="card-head"  >
+																<img src="{{single_product.product_actor6_image.url}}" alt="" class="card-img" >
+															</a>
+														</div>
+														<div class="cast-it">
+															<div class="cast-left">
+																<p><a href="#">{{single_product.product_actor6}}</a></p>
+															</div>
+														</div>	
+													</div>
+												</div>
+											<!-- movie user review -->
+											<h3><i> available in </i></h3>
+											<div>
+												
+												<a href="" class="btn btn-hover">
+													<span>DOWNLOAD MOVIE IN 720P</span>
+												</a>
+											</diV>
+
+											<br>
+
+											<div>
+												<a href="" class="btn btn-hover">
+													<span>DOWNLOAD MOVIE IN 1080P</span>
+												</a>
+											</diV>
+
+						            	</div>
+						            	<div class="col-md-4 col-xs-12 col-sm-12">
+						            		<div class="sb-it">
+						            			<h6>Director: </h6>
+						            			<p><a href="#">{{single_product.product_director1}}</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Writer: </h6>
+						            			<p><a href="#">{{single_product.product_writer1}}</a> <a href="#">{{single_product.product_writer2}}</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Stars: </h6>
+						            			<p><a href="#">{{single_product.product_actor1}},</a> <a href="#">{{single_product.product_actor2}},</a> <a href="#">{{single_product.product_actor3}},</a><a href="#"> {{single_product.product_actor4}}</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Genres:</h6>
+						            			<p><a href="#">{{single_product.category}} </a> 
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Release Date:</h6>
+						            			<p>{{single_product.movie_release_date }} in (INDIA)</p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Run Time:</h6>
+						            			<p>141 min</p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>MMPA Rating:</h6>
+						            			<p>PG-13</p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Plot Keywords:</h6>
+						            			<p class="tags">
+						            				<span class="time"><a href="#">superhero</a></span>
+													<span class="time"><a href="#">marvel universe</a></span>
+													<span class="time"><a href="#">comic</a></span>
+													<span class="time"><a href="#">blockbuster</a></span>
+													<span class="time"><a href="#">final battle</a></span>
+						            			</p>
+						            		</div>
+						            		<div class="ads">
+												<img src="images/uploads/ads1.png" alt="">
+											</div>
+						            	</div>
+						            </div>
+						        </div>
+								
+								<div id="movies" class="tab active">
+									<iframe id="iframe-embed" width="50%" scrolling="no" frameborder="0" src="https://www.2embed.ru/embed/tmdb/movie?id=595228" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+									<iframe id="iframe-embed" width="50%" scrolling="no" frameborder="0" src="https://www.2embed.ru/embed/tmdb/movie?id=299534" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+									<iframe id="iframe-embed" width="50%" scrolling="no" frameborder="0" src="https://www.2embed.ru/embed/tmdb/movie?id=299534" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+						        </div>
+
+
+
+						        <div id="reviews" class="tab review">
+						           <div class="row">
+						            	<div class="rv-hd">
+						            		<div class="div">
+							            		<h3>Related Movies To</h3>
+						       	 				<h2>{{single_product.product_name}}</h2>
+							            	</div>
+							            	<a href="#" class="redbtn">Write Review</a>
+						            	</div>
+						            	<div class="topbar-filter">
+											<p>Found <span>56 reviews</span> in total</p>
+											<label>Filter by:</label>
+											<select>
+												<option value="popularity">Popularity Descending</option>
+												<option value="popularity">Popularity Ascending</option>
+												<option value="rating">Rating Descending</option>
+												<option value="rating">Rating Ascending</option>
+												<option value="date">Release date Descending</option>
+												<option value="date">Release date Ascending</option>
+											</select>
+										</div>
+
+										<div class="row">
+											<div class="col-md-15">
+												<form action="{% url 'submit_review' single_product.id %}" method ="POST">
+													{% csrf_token%}
+													<h5>write Your Review <h5>
+													<div>
+										
+														<label>How do you rate this product </label>
+														<br>
+														<section>
+															<div class="rt-container">
+																<div class="col-rt-12">
+																	
+																<div class="rate">
+																	<span class="star-cb-group">
+																	<input type="radio" id="rating-5" name="rating" value="5" required/><label for="rating-5">5</label>
+																	<input type="radio" id="rating-4" name="rating" value="4" required /><label for="rating-4">4</label>
+																	<input type="radio" id="rating-3" name="rating" value="3" required /><label for="rating-3">3</label>
+																	<input type="radio" id="rating-2" name="rating" value="2" required/><label for="rating-2">2</label>
+																	<input type="radio" id="rating-1" name="rating" value="1" required/><label for="rating-1">1</label>
+																	<input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" required/><label for="rating-0">0</label>
+																	</span>
+																</div>
+																
+																</div>
+															</div>
+														</section>
+										                <br>
+										
+														<h7>Review Title </h7>
+														<div class="box-container" >
+															<input type="type" class="review-field" name="subject">
+														</div>
+														<br>
+														<h7>Review:</h7>
+														<div class="box-container" >
+															<textarea name="review" row="4" class="review-field"></textarea>
+															<br>
+															<input type="submit" value="Submit Review" class="redbtn">	
+															<br>
+														</div>
+													
+													{% include 'includes/alerts.html' %}
+												</form>
+												<br>
+										
+												<header class="section-heading">
+													<h3>Customer Reviews </h3>  
+													
+												</header>
+												<br>											
+											</div> 
+											{% for review in reviews %}
+											<div class="mv-user-review-item">
+												<div class="user-infor">
+													<h3>{{review.subject}}</h3>  
+													<br>
+													<div>
+														<p>This is by far one of my favorite movies from the MCU. The introduction of new Characters both good and bad also makes the movie more exciting. giving the characters more of a back story can also help audiences relate more to different characters better, and it connects a bond between the audience and actors or characters. Having seen the movie three times does not bother me here as it is as thrilling and exciting every time I am watching it. In other words, the movie is by far better than previous movies (and I do love everything Marvel), the plotting is splendid (they really do out do themselves in each film, there are no problems watching it more than once.</p>
+													</div>
+												</div>
+												<p class="date text-muted float-md-right">uplaoded by {{review.user.full_name}} at {{review.updated_at}} </p>  
+											</div>
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+
+								<div id="cast" class="tab">
+									<div class="row">
+											 <div class="div">
+												 <h3>Cast & Crew of </h3>
+													 <h2>{{single_product.product_name}}</h2>
+										<!-- //== -->
+					       	 			<div class="title-hd-sm">
+											<h4>Directors </h4>
+										</div>
+										<div class="mvcast-item">											
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JW</h4>
+													<a href="#">{{single_product.product_director1}}</a>
+												</div>
+												<p>...  Director</p>
+											</div>
+										</div>
+										<!-- //== -->
+										<div class="title-hd-sm">
+											<h4>Credit Writers</h4>
+										</div>
+										<div class="mvcast-item">											
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>SL</h4>
+													<a href="#">{{single_product.product_writer1}}</a>
+												</div>
+												<p>... Credit Writers</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JK</h4>
+													<a href="#">{{single_product.product_writer2}}</a>
+												</div>
+												<p>... Credit Writers</p>
+											</div>
+										</div>
+										<!-- //== -->
+										<div class="title-hd-sm">
+											<h4>Cast</h4>
+										</div>
+										<div class="mvcast-item">											
+											<div class="cast-it">
+												<div class="cast-left">
+													<a href="#">{{single_product.product_actor1}}</a>
+												</div>
+												<p>...{{single_product.actor1_name_in_movie}}</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<a href="#">{{single_product.product_actor2}}</a>
+												</div>
+												<p>... {{single_product.actor2_name_in_movie}}</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<a href="#">{{single_product.product_actor3}}</a>
+												</div>
+												<p>... {{single_product.actor3_name_in_movie}}</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<a href="#">{{single_product.product_actor4}}</a>
+												</div>
+												<p>...  {{single_product.actor4_name_in_movie}}</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<a href="#">{{single_product.product_actor5}}</a>
+												</div>
+												<p>... {{single_product.actor5_name_in_movie}}</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<a href="#">{{single_product.product_actor6}}</a>
+												</div>
+												<p>... {{single_product.actor6_name_in_movie}}</p>
+											</div>
+										</div>
+										<!-- //== -->
+										<div class="title-hd-sm">
+											<h4>Produced by</h4>
+										</div>
+										<div class="mvcast-item">											
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>VA</h4>
+													<a href="#">Victoria Alonso</a>
+												</div>
+												<p>...  executive producer</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>MB</h4>
+													<a href="#">Mitchel Bell</a>
+												</div>
+												<p>...  co-producer (as Mitch Bell)</p>
+											</div>
+										</div>
+						            </div>
+					       	 	</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer section-->
+
+<!-- end of footer section-->
+
+<script src="{% static 'js2/jquery.js' %}"></script>
+<script src="{% static 'js2/plugins.js' %}"></script>
+<script src="{% static 'js2/plugins2.js' %}"></script>
+<script src="{% static 'js2/custom.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

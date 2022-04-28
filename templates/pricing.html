@@ -1,0 +1,91 @@
+{% extends 'base.html'%}
+{% load static %} 
+
+{% block content %}
+
+<!-- PRICING SECTION -->
+ <div class="section">
+    <div class="container">
+        <div class="pricing">
+            <div class="pricing-header">
+                <span class="main-color">M</span>ovie Fl<span class="main-color">i</span>x pricing
+            </div>
+            <div class="pricing-list">
+                <div class="row">
+                    <div class="col-4 col-md-12 col-sm-12">
+                        <div class="pricing-box">
+                            <div class="pricing-box-header">
+                                <div class="pricing-name">
+                                    Basic
+                                </div>
+                                <div class="pricing-price">
+                                    Free
+                                </div>
+                            </div>
+                            <div class="pricing-box-content">
+                                <p>Originals</p>
+                                <p>Swich plans anytime</p>
+                                <p><del>65+ top Live</del></p>
+                                <p><del>TV Channels</del></p>
+                            </div>
+                            <div class="pricing-box-action">
+                                <a href="{% url'home'%}" class="btn btn-hover">
+                                    <span>Register now</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-12 col-sm-12">
+                        <div class="pricing-box hightlight">
+                            <div class="pricing-box-header">
+                                <div class="pricing-name">
+                                    Saver Pack
+                                </div>
+                                <div class="pricing-price">
+                                    ₹99.00 <span>/month</span>
+                                </div>
+                            </div>
+                            <div class="pricing-box-content">
+                                <p>Originals</p>
+                                <p>Swich plans anytime</p>
+                                <p>65+ top Live</p>
+                                <p><del>TV Channels</del></p>
+                            </div>
+                            <div class="pricing-box-action">
+                                <a href="{% url'home'%}" class="btn btn-hover">
+                                    <span>Register now</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-12 col-sm-12">
+                        <div class="pricing-box">
+                            <div class="pricing-box-header">
+                                <div class="pricing-name">
+                                    VIP
+                                </div>
+                                <div class="pricing-price">
+                                    ₹150.00 <span>/month</span>
+                                </div>
+                            </div>
+                            <div class="pricing-box-content">
+                                <p>Originals</p>
+                                <p>Swich plans anytime</p>
+                                <p>65+ top Live</p>
+                                <p>TV Channels</p>
+                            </div>
+                            <div class="pricing-box-action">
+                                <a href="{% url'home'%}" class="btn btn-hover">
+                                    <span>Register now</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PRICING SECTION -->
+
+{% endblock %}

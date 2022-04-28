@@ -1,0 +1,59 @@
+{% load static %}
+
+<!-- NAV -->
+<div class="nav-wrapper">
+    <div class="container">
+        <div class="nav">
+            <a href="http://127.0.0.1:8000/" class="logo">
+                <i class='bx bx-movie-play bx-tada main-color'></i>MovieFl<span class="main-color">i</span>x
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="http://127.0.0.1:8000/">Home</a></li>
+                <li><a href="http://127.0.0.1:8000/genres/">GenreS</a></li>
+                <li><a href="http://127.0.0.1:8000/movie/">Movies</a></li>
+                <li><a href="{% url 'mark' %}">Watchlist</a></li>
+                <li><a href="{% url 'subplan' %}">Subscription</a></li>
+                <li>
+                    <a href="#"> 
+                        <form action="{% url 'search' %}" class="navbar-form">
+                            <input type="text" name="keyword" placeholder="I'm looking for..." class="navbar-form-search">
+                
+                            <button class="navbar-form-btn">
+                                <ion-icon name="search-outline"></ion-icon>
+                            </button>
+                
+                            <button class="navbar-form-close">
+                                <ion-icon name="close-circle-outline"></ion-icon>
+                            </button>
+                        </form>  
+                    </a>
+                </li>
+            
+                <li>
+                    <div>
+                    {% if user.id is None%}
+                    <a href="{% url 'login' %}" class="btn btn-hover">
+                        <span>Sign in</span>
+                    </a>
+                    {% else %}
+                    <small class="title text-muted">Welcome {{user.full_name}}!</small>
+                    <li> 
+                        
+                        <a href="{% url 'logout' %}" class="btn btn-hover">
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    </div>
+                    
+                </li>
+            </ul>
+            <!-- MOBILE MENU TOGGLE -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END NAV -->

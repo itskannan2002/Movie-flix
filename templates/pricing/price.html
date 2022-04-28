@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% load static %} 
+
+{% block content %}
+
+<!-- PRICING SECTION -->
+<div class="section">
+    <div class="container">
+        <div class="pricing">
+            <div class="pricing-header">
+                <span class="main-color">M</span>ovie Fl<span class="main-color">i</span>x pricing
+            </div>
+            <div class="">
+               
+               
+                
+                <div class="row">
+                    {% for Priceplan in link %}
+                    <div class="col-4 col-md-12 col-sm-12">
+                        
+                        <div class="pricing-box">
+                           
+                            
+                            <div class="pricing-box-header">
+                                <div class="pricing-name">
+                                {{Priceplan.plan_name}}
+                                </div>  
+                                <div class="pricing-price">
+                                    ₹ {{Priceplan.plan_price}} <span>/{{Priceplan.plan_valid}}month</span>
+                                </div>
+                            </div>
+                            <div class="pricing-box-content">
+                                <p>Originals</p>
+                                <p>Swich plans anytime</p>
+                                <p>{{Priceplan.resolution}}</p>
+                                <p>{{Priceplan.download}}</p>
+                                <p>{{Priceplan.sound}}</p>
+                                <p>{{Priceplan.add}}</p>
+                                <p>{{Priceplan.sports}}</p>
+                            </div>
+                            <div class="pricing-box-action">
+                                <a href="{{Priceplan.get_url}}" class="btn btn-hover">
+                                    <span>Register now</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    {% endfor %}
+{% endblock %}
